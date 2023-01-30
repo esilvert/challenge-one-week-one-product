@@ -7,6 +7,11 @@ class GamesController < ApplicationController
 
   def play; end
 
+  def restart
+    session[:series] = 0
+    redirect_to root_path
+  end
+
   def answer
     session[:series] ||= 0
     session[:series] += 1

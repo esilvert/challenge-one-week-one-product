@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root 'games#splash'
 
   get 'play', to: 'games#play'
+  get 'restart', to: 'games#restart'
 
   post 'answer', to: 'games#answer'
 
