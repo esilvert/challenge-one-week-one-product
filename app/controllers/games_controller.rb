@@ -16,7 +16,14 @@ class GamesController < ApplicationController
       return
     end
 
-    redirect_to play_path
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace(
+          'game',
+          partial: 'games/play_content'
+        )
+      end
+    end
   end
 
   def lost; end
