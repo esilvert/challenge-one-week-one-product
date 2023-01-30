@@ -5,4 +5,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  root 'games#splash'
+
+  get 'play', to: 'games#play'
+
+  post 'answer', to: 'games#answer'
+
+  get 'lose-screen', to: 'games#lost'
 end
