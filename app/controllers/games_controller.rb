@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class GamesController < ApplicationController
+  layout 'game'
+
   def splash; end
 
   def play; end
