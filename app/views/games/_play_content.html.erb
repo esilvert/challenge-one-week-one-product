@@ -3,14 +3,24 @@
 
   Score : <%= session[:series] %>
 
-  <div class="flex justify-center items-center text-center" id="question">
-    <%= rand(1..10) %> x <%= rand(1..10) %> = ?
+  <div class="flex justify-center items-center text-center px-4" id="question">
+    <div class="bg-white border border-green-300 border-4  p-5 px-20 my-2 w-full text-xl font-bold">
+      <%= session[SessionConstants::LEFT_OPERAND_KEY] %>
+      <%= session[SessionConstants::OPERATOR_KEY] %>
+      <%= session[SessionConstants::RIGHT_OPERAND_KEY] %>
+    </div>
   </div>
-  <div class="flex flex-wrap justify-center items-center text-center" id="answers">
-    <%= button_to '10', answer_path, data: { turbo_frame: '_top'}, form_class: 'border border-red-500 rounded p-1 m-2' %>
-    <%= button_to '20', answer_path, form: {data: { turbo_frame: 'game'}}, form_class: 'border border-red-500 rounded p-1 m-2' %>
-    <%= button_to '30', answer_path, form: {data: { turbo_frame: 'game'}}, form_class: 'border border-red-500 rounded p-1 m-2' %>
-    <%= button_to '40', answer_path, form: {data: { turbo_frame: 'game'}}, form_class: 'border border-red-500 rounded p-1 m-2' %>
+  <div class="flex flex-col justify-center items-center text-center px-8" id="answers">
+    <% session[SessionConstants::ALL_ANSWERS_KEY].each do |answer| %>
+    <%=
+      button_to answer, answer_path,
+       params: {value: answer},
+       data: { turbo_frame: '_top'},
+       form_class: 'bg-white border border-green-300 border-4 p-1 px-20 m-2 w-full'
+    %>
+    <% end %>
   </div>
+</div>
+<p class="hidden"><%= session.as_json %></p>
 
 <% end %>

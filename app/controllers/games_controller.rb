@@ -3,24 +3,31 @@
 class GamesController < ApplicationController
   layout 'game'
 
-  def splash; end
+  NB_ANSWERS_TO_WIN = 3
 
-  def play; end
+  def splash
+    Game::QuestionService.new(session:).reset
+  end
+
+  def play
+    Game::QuestionService.new(session:).tap do |service|
+      service.create_question unless service.question_in_progress?
+    end
+  end
 
   def restart
-    session[:series] = 0
+    Game::QuestionService.new(session:).reset
 
     render :splash
   end
 
   def answer
-    session[:series] ||= 0
-    session[:series] += 1
-
-    if session[:series] >= 10
-      redirect_to lose_screen_path
-      return
+    question_service = Game::QuestionService.new(session:).tap do |service|
+      service.update_score_with_answer(params[:value])
+      service.create_question
     end
+
+    redirect_to lose_screen_path and return if question_service.series_ended?
 
     respond_to do |format|
       format.turbo_stream do
