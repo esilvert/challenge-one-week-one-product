@@ -9,7 +9,8 @@ class GamesController < ApplicationController
 
   def restart
     session[:series] = 0
-    redirect_to root_path
+
+    render :splash
   end
 
   def answer
@@ -31,5 +32,14 @@ class GamesController < ApplicationController
     end
   end
 
-  def lost; end
+  def lost
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace(
+          'game',
+          partial: 'games/lost_content'
+        )
+      end
+    end
+  end
 end

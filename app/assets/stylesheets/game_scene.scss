@@ -5,10 +5,6 @@
 	--pink: rgba(213, 84, 213, 1);
 	--pink2: rgba(213, 84, 213, 0.7);
 }
-main, game * {
-	margin: 0;
-	padding: 0;
-}
 
 *::before,
 ::after {
@@ -16,7 +12,7 @@ main, game * {
 	position: absolute;
 }
 
-body {
+.game-container {
 	width: 100vw;
 
 	height: 100vh;
@@ -27,9 +23,9 @@ body {
 	filter: saturate(130%) contrast(125%);
 }
 
-main {
+.game {
 	overflow: hidden;
-	width: 80%;
+	max-width: 85%;
 	min-width: 80vw;
 	height: 55%;
   min-height: 90vh;
@@ -42,12 +38,14 @@ main {
 	outline: 8px ridge cyan;
 	outline-offset: 4px;
 }
+
 #top {
 	height: 67%;
 	background: linear-gradient(transparent 50%, hotpink 160%);
 	box-shadow: 0 15px 50px 1px white;
 	position: relative;
 }
+
 #sky {
 	position: absolute;
 	top: 0;
@@ -66,6 +64,7 @@ main {
 	animation: move 10s linear infinite;
 	opacity: 0.2;
 }
+
 #bottom {
 	position: absolute;
 	z-index: 2;
@@ -110,7 +109,14 @@ main {
 	place-items: center;
 	justify-content: center;
 }
-h1 {
+.game h1 {
+  // self
+  margin: 20px;
+  position: relative;
+  bottom: 130px;
+  line-height: 1;
+
+  // codepen
 	color: transparent;
 	font-family: "Russo One", sans-serif;
 	text-transform: uppercase;
@@ -128,7 +134,16 @@ h1 {
 	filter: drop-shadow(5px 5px 1px black) drop-shadow(1px 1px 1px magenta);
 	animation: bg-shift 0.5s ease-in-out infinite alternate;
 }
-h2 {
+.game h2 {
+  // self
+  @media(max-width: 400px){
+  position: relative;
+  left: 0;
+  bottom: 3rem;
+  line-height: 1;
+  }
+
+  // codepen
 	color: white;
 	font-family: "Yellowtail", cursive;
 	font-weight: 100;
@@ -164,6 +179,6 @@ h2 {
 	}
 }
 
-img {
+.game img {
 	width: 100%;
 }

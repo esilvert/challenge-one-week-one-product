@@ -1,0 +1,8 @@
+<h1>Multy</h1>
+
+<h2 style="left: 3rem;">Oh no you lost !</h2>
+
+Your score :
+<%= session[:series] %>
+
+<%= link_to 'Restart', restart_path, {data: { turbo_frame: 'game'}} %>
