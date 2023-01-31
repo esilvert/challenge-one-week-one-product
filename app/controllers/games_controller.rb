@@ -41,6 +41,7 @@ class GamesController < ApplicationController
 
   def lost
     respond_to do |format|
+      format.html {}
       format.turbo_stream do
         render turbo_stream: turbo_stream.replace(
           'game',

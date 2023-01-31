@@ -1,5 +1,6 @@
 
-<%= turbo_frame_tag 'game' do %>
+<%= turbo_frame_tag 'game', data: {controller: 'timeout'} do %>
+  <progress min="0" max="100" data-timeout-target="progress" id="progress"></progress>
 
   Score : <%= session[:series] %>
 
@@ -15,7 +16,7 @@
     <%=
       button_to answer, answer_path,
        params: {value: answer},
-       data: { turbo_frame: '_top'},
+       data: { turbo_frame: '_top', action: 'click->timeout#refresh'},
        form_class: 'bg-white border border-green-300 border-4 p-1 px-20 m-2 w-full'
     %>
     <% end %>
