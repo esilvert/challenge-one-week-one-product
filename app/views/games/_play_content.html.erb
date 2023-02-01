@@ -1,4 +1,4 @@
-<%= turbo_frame_tag 'game', data: {controller: 'timeout'} do %>
+<%= turbo_frame_tag 'game', data: {controller: 'timeout series', 'serie-length': session[SessionConstants::SERIES_COUNT_KEY]} do %>
   <progress min="0" max="100" data-timeout-target="progress" id="progress"></progress>
 
   Score : <%= session[:series] %>

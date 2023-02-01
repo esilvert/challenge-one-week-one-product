@@ -3,6 +3,8 @@
 	--background: #1F1F1F;
   --top-color: #4fcfef;
   --top-color-lighten:  #5fDfFf11;
+  --top-color-hard: #cd5931;
+  --top-color-hard-lighten:  #cd593111;
 
   --primary: #FF49E8;
 
@@ -46,14 +48,26 @@
 
 #top {
 	height: 67%;
-	background: linear-gradient(
-    transparent 80%,
-    var(--top-color-lighten) 95%,
-    var(--top-color) 99%,
-    white 100%);
+
   //background: linear-gradient(180deg, #001855 -0.06%, #004CBF 10.55%, #3E00FF 11.51%, #4A7ADA 21.56%, #4C8DD4 21.57%, #82BCE4 30.63%, #A9DEEF 38.41%, #C2FFF4 44.58%, #CBFFEA 48.39%, #1D9666 53.85%, #0DFF9F 73.23%, #53FFBB 74.87%, #75FBC6 81.82%, #99FFD7 86.9%, #9FFFD9 89.53%, #E0FBF0 99.88%);
 	box-shadow: 0 15px 50px 1px white;
 	position: relative;
+}
+
+.gradient-blue {
+	background: linear-gradient(
+    transparent 40%,
+    var(--top-color-lighten) 95%,
+    var(--top-color) 99%,
+    white 100%);
+}
+
+.gradient-red {
+	background: linear-gradient(
+    transparent 40%,
+    var(--top-color-hard-lighten) 95%,
+    var(--top-color-hard) 99%,
+    white 100%);
 }
 
 #sky {
