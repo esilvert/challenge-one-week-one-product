@@ -6,22 +6,26 @@ export default class extends Controller {
   connect() {
     console.log("[Slide] Slide initialized");
 
+    this.doSlide();
+  }
+
+  doSlide() {
     let cumulativeDuration = 0;
 
     this.hideAllExcept(this.slideTarget, false);
 
-    this.slideTargets.forEach((target) => {
-      cumulativeDuration += parseInt(target.dataset.duration ?? "0");
-
+    this.slideTargets.forEach((target, index) => {
       console.log(
-        `[Slide] Preparing to show node ${target} in ${cumulativeDuration}`
+        `[Slide] Preparing to show node ${target} <${index}> in ${cumulativeDuration}`
       );
 
       window.setTimeout(() => {
-        console.log(`[Slide] Now showing node ${target}`);
+        console.log(`[Slide] Now showing node ${target} <${index}>`);
 
         this.hideAllExcept(target, true);
       }, cumulativeDuration);
+
+      cumulativeDuration += parseInt(target.dataset.duration ?? "0");
     });
   }
 
