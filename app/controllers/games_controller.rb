@@ -9,6 +9,22 @@ class GamesController < ApplicationController
     Game::QuestionService.new(session:).reset
   end
 
+  def new; end
+
+  def create
+    player = Player.create(**create_params)
+
+    session[:id] = player.id
+    session[:name] = player.name
+    warn "\e[101m[#{Time.now}]\t #{__FILE__}::#{__LINE__}:\e[93m ID: #{session[:id]} \e[0m"
+
+    redirect_to play_path
+  end
+
+  def create_params
+    params.permit(:name)
+  end
+
   def play
     Game::QuestionService.new(session:).tap do |service|
       service.create_question unless service.question_in_progress?
@@ -18,7 +34,11 @@ class GamesController < ApplicationController
   def restart
     Game::QuestionService.new(session:).reset
 
-    render :splash
+    if !session[:name]
+      redirect_to new_game_path
+    else
+      redirect_to play_path
+    end
   end
 
   def answer

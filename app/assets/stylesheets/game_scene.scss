@@ -187,6 +187,10 @@
 
 }
 
+.text-primary {
+  color: var(--primary);
+}
+
 @keyframes move {
 	to {
 		background-position-y: 2000px;

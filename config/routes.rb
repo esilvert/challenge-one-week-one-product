@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get 'play', to: 'games#play'
   get 'restart', to: 'games#restart'
 
+  resource :game, only: %i[new create]
+
   post 'answer', to: 'games#answer'
 
   get 'lose-screen', to: 'games#lost'
