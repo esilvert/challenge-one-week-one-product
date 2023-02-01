@@ -25,7 +25,7 @@ export default class extends Controller {
       const isLast = index == this.slideTargets.length - 1;
 
       console.log(
-        `[Slide] Preparing to show node ${target} <${index}> in ${cumulativeDuration}`
+        `[Slide] Preparing to show node n°<${index}> in ${cumulativeDuration} ms`
       );
 
       window.setTimeout(() => {
