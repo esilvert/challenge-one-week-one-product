@@ -11,9 +11,9 @@ module Game
 
     def create_question
       # TODO: move in a difficulty service or something
-      left = rand(0..10)
-      right = rand(0..10)
-      operator = :*
+      left = @serie.generate_number
+      right = @serie.generate_number
+      operator = @serie.generate_operator
       answer = left.public_send(operator, right)
 
       @session[LEFT_OPERAND_KEY] = left
