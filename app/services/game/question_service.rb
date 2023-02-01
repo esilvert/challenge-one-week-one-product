@@ -4,10 +4,9 @@ module Game
   class QuestionService
     include SessionConstants
 
-    NB_ANSWERS_TO_WIN = 10
-
     def initialize(session:)
       @session = session
+      @serie = SerieService.new(session:)
     end
 
     def create_question
@@ -48,7 +47,7 @@ module Game
     end
 
     def series_ended?
-      @session[SERIES_COUNT_KEY] >= NB_ANSWERS_TO_WIN || @session[GAME_LOST_KEY]
+      @serie.ended?
     end
 
     def reset
@@ -56,13 +55,14 @@ module Game
       @session[SCORE_KEY] = 0
       @session[GAME_LOST_KEY] = false
       @session[IS_COMPLETE_KEY] = false
+
+      @serie.reset
     end
 
     private
 
     def on_right_answer
-      @session[SERIES_COUNT_KEY] ||= 0
-      @session[SERIES_COUNT_KEY] += 1
+      @serie.next
     end
 
     def on_wrong_answer
@@ -70,7 +70,7 @@ module Game
     end
 
     def update_score
-      @session[SCORE_KEY] = @session[SERIES_COUNT_KEY] * 123
+      @serie.update_score
     end
   end
 end

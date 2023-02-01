@@ -17,18 +17,22 @@ export default class extends Controller {
     );
 
     this.timeoutStart = Date.now();
-    console.log(
-      "set start to ",
-      Date.now(),
-      " as per see: ",
-      this.timeoutStart
-    );
 
     if (!this.interval)
       this.interval = window.setInterval(
         () => this.onInterval(),
         this.REFRESH_RATE
       );
+  }
+
+  disconnect() {
+    if (!this.timeout) return;
+
+    window.clearTimeout(this.timeout);
+
+    if (!this.interval) return;
+
+    window.clearInterval(this.interval);
   }
 
   refresh() {

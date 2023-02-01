@@ -3,8 +3,6 @@
 class GamesController < ApplicationController
   layout 'game'
 
-  NB_ANSWERS_TO_WIN = 3
-
   def splash
     Game::QuestionService.new(session:).reset
   end
