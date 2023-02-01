@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root 'games#splash'
 
   get 'play', to: 'games#play'
+  get 'inter', to: 'games#inter'
   get 'restart', to: 'games#restart'
 
   resource :game, only: %i[new create]

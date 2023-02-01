@@ -6,7 +6,14 @@ export default class extends Controller {
   connect() {
     console.log("[Slide] Slide initialized");
 
+    const redirection = this.element.dataset.redirectTo;
+
     this.doSlide();
+
+    if (redirection)
+      this.onSlideEnded = () => {
+        window.location = redirection;
+      };
   }
 
   doSlide() {
@@ -15,6 +22,8 @@ export default class extends Controller {
     this.hideAllExcept(this.slideTarget, false);
 
     this.slideTargets.forEach((target, index) => {
+      const isLast = index == this.slideTargets.length - 1;
+
       console.log(
         `[Slide] Preparing to show node ${target} <${index}> in ${cumulativeDuration}`
       );
@@ -23,6 +32,10 @@ export default class extends Controller {
         console.log(`[Slide] Now showing node ${target} <${index}>`);
 
         this.hideAllExcept(target, true);
+
+        if (isLast && this.onSlideEnded) {
+          this.onSlideEnded();
+        }
       }, cumulativeDuration);
 
       cumulativeDuration += parseInt(target.dataset.duration ?? "0");

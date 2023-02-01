@@ -29,6 +29,8 @@ class GamesController < ApplicationController
     end
   end
 
+  def inter; end
+
   def restart
     Game::QuestionService.new(session:).reset
 
