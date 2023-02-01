@@ -50,6 +50,10 @@ module Game
       @serie.ended?
     end
 
+    def show_message?
+      @serie.show_message?
+    end
+
     def reset
       @session[SERIES_COUNT_KEY] = 0
       @session[SCORE_KEY] = 0

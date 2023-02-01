@@ -51,10 +51,17 @@ class GamesController < ApplicationController
 
     respond_to do |format|
       format.turbo_stream do
-        render turbo_stream: turbo_stream.replace(
-          'game',
-          partial: 'games/play_content'
-        )
+        if question_service.show_message?
+          render turbo_stream: turbo_stream.replace(
+            'game',
+            partial: 'games/inter_content'
+          )
+        else
+          render turbo_stream: turbo_stream.replace(
+            'game',
+            partial: 'games/play_content'
+          )
+        end
       end
     end
   end

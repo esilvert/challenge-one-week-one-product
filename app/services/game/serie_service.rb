@@ -12,6 +12,10 @@ module Game
       @session[GAME_LOST_KEY]
     end
 
+    def show_message?
+      (@session[SERIES_COUNT_KEY] % 10).zero?
+    end
+
     def next
       @session[SERIES_COUNT_KEY] ||= 0
       @session[SERIES_COUNT_KEY] += 1
