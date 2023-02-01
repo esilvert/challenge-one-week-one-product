@@ -4,7 +4,7 @@
   --top-color: #4fcfef;
   --top-color-lighten:  #5fDfFf11;
 
-  --primary: pink;
+  --primary: #FF49E8;
 
   --ground-upper-color: #5C08F3;
   --ground-middle-color: #3E00CD;
@@ -130,7 +130,7 @@
 	place-items: center;
 	justify-content: center;
 }
-.game h1 {
+.game .heading {
   // self
   margin: 20px;
   position: relative;
@@ -141,7 +141,7 @@
 	color: transparent;
 	font-family: "Russo One", sans-serif;
 	text-transform: uppercase;
-	font-size: 5em;
+	//font-size: 5em;
 	transform: translatey(25px);
 	background: linear-gradient(
 		cornflowerblue 30%,
@@ -155,7 +155,15 @@
 	filter: drop-shadow(5px 5px 1px black) drop-shadow(1px 1px 1px magenta);
 	animation: bg-shift 0.5s ease-in-out infinite alternate;
 }
-.game h2 {
+
+.game .subheading{
+  color: var(--primary);
+  border: 2px var(--primary) solid;
+  border-radius: 8px;
+  padding: 0px 3px;
+  font-weight: bold;
+}
+.game .bounce {
   // self
   @media(max-width: 400px){
   position: relative;
@@ -173,6 +181,12 @@
 	text-shadow: 0 0 3px magenta, 0 0 7px magenta, 0 0 15px black, 0 0 15px black;
 	animation: hover 1s ease-in-out infinite;
 }
+
+.game .rotating{
+  	animation: rotate 2s linear infinite;
+
+}
+
 @keyframes move {
 	to {
 		background-position-y: 2000px;
@@ -187,6 +201,15 @@
 	}
 }
 
+@keyframes rotate {
+	0% {
+		transform: rotatey(0);
+	}
+	100% {
+    transform: rotatey(360deg);
+	}
+}
+
 @keyframes hover {
 	0% {
 		transform: translatey(-10px) rotatez(-5deg) perspective(200px) translatez(0);
@@ -198,8 +221,4 @@
 	100% {
 		transform: translatey(-10px) rotatez(-5deg) perspective(200px) translatez(0);
 	}
-}
-
-.game img {
-	width: 100%;
 }

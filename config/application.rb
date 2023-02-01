@@ -35,5 +35,7 @@ module Division
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.hosts << '4297-87-231-230-168.eu.ngrok.io' if Rails.env.development?
   end
 end

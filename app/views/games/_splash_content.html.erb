@@ -1,4 +1,17 @@
-<h1>Multy</h1>
-<h2>
-  <%= link_to 'Start!', play_path %>
-</h2>
+<div data-controller="slide">
+  <div data-slide-target="slide" data-duration="1000">
+
+    <h1 class="heading top-0 text-[5rem]" >Multy</h1>
+    <div class="w-full">
+      <h2 class="subheading w-fit ml-auto mr-5 my-3 text-sm">3000</h2>
+    </div>
+
+  </div>
+
+  <div data-slide-target="slide" data-duration="1000">
+    <div class="centered text-center block">
+      <%= image_tag 'smiley.png', width: '90', height: '50', class: 'mx-auto mb-5 rotating' %>
+        <%= link_to 'Press&nbsp;Start'.html_safe, play_path, class: 'heading text-[2rem] w-full' %>
+    </div>
+  </div>
+</div>
