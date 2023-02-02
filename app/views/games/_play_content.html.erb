@@ -1,5 +1,17 @@
 <%= turbo_frame_tag 'game', class: 'w-full', data: {controller: 'timeout series', 'serie-length': session[SessionConstants::SERIES_COUNT_KEY]} do %>
-  <progress min="0" max="100" data-timeout-target="progress" id="progress"></progress>
+
+  <div class="progress-container absolute flex items-center justify-center">
+    <progress value="50" min="0" max="100" data-timeout-target="progress" id="progress"></progress>
+
+    <button type="button"
+      class="ml-3 z-20"
+      data-action=""
+    >
+      <%=
+        image_tag 'cross.png'
+      %>
+    </button>
+  </div>
 
   Score : <%= session[:series] %>
 
@@ -10,6 +22,7 @@
       <%= session[SessionConstants::RIGHT_OPERAND_KEY] %>
     </div>
   </div>
+
   <div class="flex flex-col w-full justify-center items-center text-center px-8 text-primary text-[36px]" id="answers">
     <% session[SessionConstants::ALL_ANSWERS_KEY].each do |answer| %>
       <%=
