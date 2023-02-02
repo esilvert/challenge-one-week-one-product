@@ -4,13 +4,13 @@
   Score : <%= session[:series] %>
 
   <div class="flex justify-center items-center text-center px-4" id="question">
-    <div class="bg-white border border-green-300 border-4  p-5 px-20 my-2 w-full text-xl font-bold">
+    <div class="text-primary text-[110px] mx-auto w-full font-bold">
       <%= session[SessionConstants::LEFT_OPERAND_KEY] %>
       <%= session[SessionConstants::OPERATOR_KEY] %>
       <%= session[SessionConstants::RIGHT_OPERAND_KEY] %>
     </div>
   </div>
-  <div class="flex flex-col justify-center items-center text-center px-8" id="answers">
+  <div class="flex flex-col justify-center items-center text-center px-8 text-primary text-[36px]" id="answers">
     <% session[SessionConstants::ALL_ANSWERS_KEY].each do |answer| %>
       <%=
         button_to answer, answer_path,

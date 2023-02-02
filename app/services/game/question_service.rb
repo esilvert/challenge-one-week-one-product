@@ -25,7 +25,6 @@ module Game
       @session[ALL_ANSWERS_KEY] = [
         answer,
         rand(([answer - 10, 1].max)..(answer + 10)),
-        rand(([answer - 10, 1].max)..(answer + 10)),
         rand(([answer - 10, 1].max)..(answer + 10))
       ].shuffle
     end

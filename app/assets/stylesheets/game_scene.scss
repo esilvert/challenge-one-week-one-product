@@ -138,6 +138,16 @@
 	place-items: center;
 	justify-content: center;
 }
+
+@font-face{
+  font-family: 'GameFont';
+  src: url('font.ttf');
+}
+
+.game *{
+  font-family: 'GameFont';
+}
+
 .game .heading {
   // self
   margin: 20px;
@@ -147,7 +157,6 @@
 
   // codepen
 	color: transparent;
-	font-family: "Russo One", sans-serif;
 	text-transform: uppercase;
 	//font-size: 5em;
 	transform: translatey(25px);
