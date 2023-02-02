@@ -23,18 +23,20 @@
       <% end %>
       </div>
 
-      <button type="button"
-        class="absolute bottom-[5px] right-[5px] z-20"
-        data-action="click->sounds#toggleMute"
+      <% if request.path != '/' %>
+        <button type="button"
+          class="absolute bottom-[5px] right-[5px] z-20"
+          data-action="click->sounds#toggleMute"
         >
-        <%=
-          image_tag 'mute.png', data: {
-            'sounds-target': 'icon',
-        'mute-icon': image_path('mute.png'),
-        'unmute-icon': image_path('unmute.png')
-        }
-        %>
-      </button>
+          <%=
+            image_tag 'mute.png', data: {
+              'sounds-target': 'icon',
+              'mute-icon': image_path('mute.png'),
+              'unmute-icon': image_path('unmute.png')
+            }
+          %>
+        </button>
+      <% end %>
     </div>
 
 
