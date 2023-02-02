@@ -13,9 +13,11 @@
         class="ml-3 z-20"
         data-action=""
       >
-        <%=
-          image_tag 'cross.png'
-        %>
+        <%= link_to new_game_path do %>
+          <%=
+            image_tag 'cross.png'
+          %>
+        <% end %>
       </button>
     </div>
 
