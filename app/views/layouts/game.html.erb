@@ -24,7 +24,7 @@
       </div>
 
       <button type="button"
-        class="absolute bottom-3 right-5 z-10"
+        class="absolute bottom-3 right-5 z-20"
         data-action="click->sounds#toggleMute"
         >
         <%=
@@ -49,7 +49,7 @@
 
         <%= yield %>
 
-        <p class="absolute top-2 right-2 h-fit w-fit text-primary font-bold text-xs z-10 w-fit h-fit">
+        <p class="absolute top-2 right-2 h-fit w-fit text-primary font-bold text-xs z-10 w-fit h-fit hidden">
           <% if session[:name].present? %>
             <%= session[:name] %> <!-- <%= session[:id] %>-->
           <% else %>

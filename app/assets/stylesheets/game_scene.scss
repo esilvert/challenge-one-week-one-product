@@ -32,18 +32,12 @@
 
 .game {
 	overflow: hidden;
-	max-width: 85%;
-	min-width: 80vw;
-	height: 55%;
-  min-height: 90vh;
+  min-width: 100%;
+  min-height: 100vh;
 	background: var(--background);
 	display: grid;
 
 	position: relative;
-	border: 8px solid;
-	border-color: darkmagenta magenta;
-	outline: 8px ridge cyan;
-	outline-offset: 4px;
 }
 
 #top {
