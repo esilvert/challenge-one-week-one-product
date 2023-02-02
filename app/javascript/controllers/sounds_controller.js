@@ -14,21 +14,36 @@ export default class extends Controller {
       this.musicTarget.volume = 0.8; // Lower the music :head_exploding:
     }
 
-    this.isMute = false;
+    window.setTimeout(() => {
+      this.isMute = this.musicTarget.paused || this.musicTarget.duration == 0;
+      this.updateIcon();
+      this.playMusic();
+    }, 100);
   }
 
   disconnect() {}
 
-  toggleMute(event) {
+  playMusic() {
+    if (this.hasMusicTarget) this.musicTarget.play();
+  }
+
+  toggleMute() {
     if (this.isMute) {
       this.musicTarget.play();
-      this.iconTarget.src = this.iconTarget.dataset.muteIcon;
     } else {
       this.musicTarget.pause();
-      this.iconTarget.src = this.iconTarget.dataset.unmuteIcon;
     }
 
     this.isMute = !this.isMute;
+    this.updateIcon();
+  }
+
+  updateIcon() {
+    if (this.isMute) {
+      this.iconTarget.src = this.iconTarget.dataset.unmuteIcon;
+    } else {
+      this.iconTarget.src = this.iconTarget.dataset.muteIcon;
+    }
   }
 
   private;
