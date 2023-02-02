@@ -43,7 +43,7 @@ class GamesController < ApplicationController
 
   def answer
     question_service = Game::QuestionService.new(session:).tap do |service|
-      service.update_score_with_answer(params[:value])
+      service.update_score_with_answer(params[:value], timebank: params[:tb])
       service.create_question
     end
 

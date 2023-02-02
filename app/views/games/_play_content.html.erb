@@ -1,5 +1,10 @@
 <%= turbo_frame_tag 'game', class: 'w-full' do %>
-  <div class="w-full", data-controller="timeout series" data-serie-length="<%= session[SessionConstants::SERIES_COUNT_KEY]%>">
+  <div class="w-full",
+    data-controller="timeout series"
+    data-serie-length="<%= session[SessionConstants::SERIES_COUNT_KEY]%>"
+    data-timebank="<%= session[SessionConstants::TIMEBANK_KEY] || 0 %>"
+    data-time-coef="<%= session[SessionConstants::TIME_COEF_KEY] || 1 %>"
+  >
 
     <div class="progress-container absolute  top-0 flex items-center justify-center">
       <progress value="50" min="0" max="100" data-timeout-target="progress" id="progress"></progress>
@@ -28,10 +33,10 @@
       <% session[SessionConstants::ALL_ANSWERS_KEY].each do |answer| %>
         <%=
           button_to answer_path,
-              params: {value: answer},
+              params: {value: answer, tb: session[SessionConstants::TIMEBANK_KEY]},
            form_class: 'w-full' ,
            class: 'w-full flex align-center justify-center number',
-           data: { turbo_frame: 'game' } do
+           form: {data: { 'timeout-target': 'tb', turbo_frame: 'game' }} do
         %>
           <div class="button">
             <p class="my-5 number"><%= answer %></p>

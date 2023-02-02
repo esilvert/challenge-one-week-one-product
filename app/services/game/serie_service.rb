@@ -16,13 +16,27 @@ module Game
       (@session[SERIES_COUNT_KEY] % 10).zero? && @session[SERIES_COUNT_KEY] < 70
     end
 
-    def next
+    def update_timebank(tb)
+      @session[TIMEBANK_KEY] = tb unless tb > @session[TIMEBANK_KEY]
+    end
+
+    def on_success
       @session[SERIES_COUNT_KEY] ||= 0
       @session[SERIES_COUNT_KEY] += 1
+
+      @session[TIMEBANK_KEY] ||= 0
+      @session[TIMEBANK_KEY] += 250
+    end
+
+    def on_error
+      @session[TIMEBANK_KEY] -= 1000
+
+      @session[GAME_LOST_KEY] = true if @session[TIMEBANK_KEY].negative?
     end
 
     def reset
       @session[SERIES_COUNT_KEY] = 0
+      @session[TIMEBANK_KEY] = 30_000
     end
 
     def update_score

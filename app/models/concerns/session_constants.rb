@@ -12,4 +12,7 @@ module SessionConstants
 
   SERIES_COUNT_KEY = :series
   SCORE_KEY = :score
+
+  TIMEBANK_KEY = :time
+  TIME_COEF_KEY = :time_coef
 end

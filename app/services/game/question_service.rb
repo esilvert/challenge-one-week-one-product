@@ -33,7 +33,9 @@ module Game
       @session[IS_COMPLETE_KEY]
     end
 
-    def update_score_with_answer(value)
+    def update_score_with_answer(value, timebank:)
+      @serie.update_timebank(timebank.to_i)
+
       if @session[ANSWER_KEY] == value
         on_right_answer
       else
@@ -65,11 +67,11 @@ module Game
     private
 
     def on_right_answer
-      @serie.next
+      @serie.on_success
     end
 
     def on_wrong_answer
-      @session[GAME_LOST_KEY] = true
+      @serie.on_error
     end
 
     def update_score
