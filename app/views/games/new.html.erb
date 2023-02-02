@@ -15,7 +15,8 @@
       placeholder: 'joueur',
       class: "button border-0 text-primary bg-transparent my-2 max-w-[316px] text-xl font-bold",
       minlength: 3,
-      value: session[:name]
+      value: session[:name],
+      data: { action: 'keyup->sounds#play', 'sounds-id-param': 'tic' }
       )
     %>
 

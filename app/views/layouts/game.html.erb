@@ -49,7 +49,12 @@
 	    </div>
 	    <div id="text">
 
-        <%= yield %>
+        <span id="sounds" data-controller="sounds" class="w-full">
+          <audio data-sounds-target="game-over" src="<%=audio_path('game_over.mp3')%>" type="audio/mpeg"></audio>
+            <audio data-sounds-target="tic" src="<%=audio_path('tic.mp3')%>" type="audio/mpeg"></audio>
+            <audio data-sounds-target="ready" src="<%=audio_path('ready.mp3')%>" type="audio/mpeg"></audio>
+          <%= yield %>
+        </div>
 
         <p class="absolute top-2 right-2 h-fit w-fit text-primary font-bold text-xs z-10 w-fit h-fit hidden">
           <% if session[:name].present? %>
