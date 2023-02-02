@@ -6,6 +6,7 @@ module SessionConstants
   OPERATOR_KEY = :operator
   ANSWER_KEY = :answer
   ALL_ANSWERS_KEY = :answers
+  LAST_ANSWER_KEY = :last_answer
 
   IS_COMPLETE_KEY = :is_complete
   GAME_LOST_KEY = :game_lost

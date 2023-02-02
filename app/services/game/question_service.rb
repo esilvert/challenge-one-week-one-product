@@ -64,14 +64,20 @@ module Game
       @serie.reset
     end
 
+    def was_wrong?
+      !@session[LAST_ANSWER_KEY]
+    end
+
     private
 
     def on_right_answer
       @serie.on_success
+      @session[LAST_ANSWER_KEY] = true
     end
 
     def on_wrong_answer
       @serie.on_error
+      @session[LAST_ANSWER_KEY] = false
     end
 
     def update_score
