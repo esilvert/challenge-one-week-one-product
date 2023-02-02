@@ -4,12 +4,12 @@ export default class extends Controller {
   static targets = ["music", "icon"];
 
   connect() {
-    console.log("[Sounds] Connected");
+    console.log("[Musics] Connected");
 
     const query = new URLSearchParams(window.location.search);
 
     if (!query.has("music") || query.get("music") != "off") {
-      console.log("[Sounds] Starting music");
+      console.log("[Musics] Starting music");
       this.musicTarget.play();
       this.musicTarget.volume = 0.8; // Lower the music :head_exploding:
     }

@@ -14,23 +14,23 @@
 
   <body class="game-container">
 
-    <div data-controller="sounds">
+    <div data-controller="musics">
       <div>
       <% if is_game_scene? %>
-        <audio loop data-sounds-target="music" src="<%=audio_path('music.mp3')%>" type="audio/mpeg"/>
+        <audio loop data-musics-target="music" src="<%=audio_path('music.mp3')%>" type="audio/mpeg"/>
       <% else %>
-        <audio loop data-sounds-target="music" src="<%=audio_path('intro.mp3')%>" type="audio/mpeg"/>
+        <audio loop data-musics-target="music" src="<%=audio_path('intro.mp3')%>" type="audio/mpeg"/>
       <% end %>
       </div>
 
       <% if request.path != root_path && request.path != leaderboard_path %>
         <button type="button"
           class="absolute bottom-[5px] right-[5px] z-20"
-          data-action="click->sounds#toggleMute"
+          data-action="click->musics#toggleMute"
         >
           <%=
             image_tag 'mute.png', data: {
-              'sounds-target': 'icon',
+              'musics-target': 'icon',
               'mute-icon': image_path('mute.png'),
               'unmute-icon': image_path('unmute.png')
             }
