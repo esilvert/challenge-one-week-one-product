@@ -15,11 +15,26 @@
   <body class="game-container">
 
     <div data-controller="sounds">
+      <div>
       <% if is_game_scene? %>
         <audio loop data-sounds-target="music" src="<%=audio_path('music.mp3')%>" type="audio/mpeg"/>
       <% else %>
         <audio loop data-sounds-target="music" src="<%=audio_path('intro.mp3')%>" type="audio/mpeg"/>
       <% end %>
+      </div>
+
+      <button type="button"
+        class="absolute bottom-3 right-5 z-10"
+        data-action="click->sounds#toggleMute"
+        >
+        <%=
+          image_tag 'mute.png', data: {
+            'sounds-target': 'icon',
+        'mute-icon': image_path('mute.png'),
+        'unmute-icon': image_path('unmute.png')
+        }
+        %>
+      </button>
     </div>
 
 

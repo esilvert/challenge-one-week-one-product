@@ -9,8 +9,6 @@ export default class extends Controller {
     this.doSlide();
 
     this.onSlideEnded = () => {
-      console.log("[Slide] Redirecting");
-
       this.redirectTarget.click();
     };
   }
