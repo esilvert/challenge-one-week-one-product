@@ -1,42 +1,43 @@
-<%= turbo_frame_tag 'game', class: 'w-full', data: {controller: 'timeout series', 'serie-length': session[SessionConstants::SERIES_COUNT_KEY]} do %>
+<%= turbo_frame_tag 'game', class: 'w-full' do %>
+  <div class="w-full", data-controller="timeout series" data-serie-length="<%= session[SessionConstants::SERIES_COUNT_KEY]%>">
 
-  <div class="progress-container absolute flex items-center justify-center">
-    <progress value="50" min="0" max="100" data-timeout-target="progress" id="progress"></progress>
+    <div class="progress-container absolute  top-0 flex items-center justify-center">
+      <progress value="50" min="0" max="100" data-timeout-target="progress" id="progress"></progress>
 
-    <button type="button"
-      class="ml-3 z-20"
-      data-action=""
-    >
-      <%=
-        image_tag 'cross.png'
-      %>
-    </button>
-  </div>
-
-  Score : <%= session[:series] %>
-
-  <div class="flex justify-center items-center text-center px-4 number" id="question">
-    <div class="text-primary text-[110px] mx-auto w-full font-bold">
-      <%= session[SessionConstants::LEFT_OPERAND_KEY] %>
-      <%= session[SessionConstants::OPERATOR_KEY] %>
-      <%= session[SessionConstants::RIGHT_OPERAND_KEY] %>
+      <button type="button"
+        class="ml-3 z-20"
+        data-action=""
+      >
+        <%=
+          image_tag 'cross.png'
+        %>
+      </button>
     </div>
-  </div>
 
-  <div class="flex flex-col w-full justify-center items-center text-center px-8 text-primary text-[36px]" id="answers">
-    <% session[SessionConstants::ALL_ANSWERS_KEY].each do |answer| %>
-      <%=
-        button_to answer_path,
-         params: {value: answer},
-         form_class: 'w-full' ,
-         class: 'w-full flex align-center justify-center number',
-         data: { turbo_frame: 'game' } do
-      %>
-        <div class="button">
-          <p class="my-5"><%= answer %></p>
-        </div>
+    Score : <%= session[:series] %>
+
+    <div class="flex justify-center items-center text-center px-4 number" id="question">
+      <div class="text-primary text-[110px] mx-auto w-full font-bold number">
+        <%= session[SessionConstants::LEFT_OPERAND_KEY] %>
+        <%= session[SessionConstants::OPERATOR_KEY] %>
+        <%= session[SessionConstants::RIGHT_OPERAND_KEY] %>
+      </div>
+    </div>
+
+    <div class="flex flex-col w-full justify-center items-center text-center px-8 text-primary text-[36px]" id="answers">
+      <% session[SessionConstants::ALL_ANSWERS_KEY].each do |answer| %>
+        <%=
+          button_to answer_path,
+              params: {value: answer},
+           form_class: 'w-full' ,
+           class: 'w-full flex align-center justify-center number',
+           data: { turbo_frame: 'game' } do
+        %>
+          <div class="button">
+            <p class="my-5 number"><%= answer %></p>
+          </div>
         <% end %>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
   </div>
 <% end %>

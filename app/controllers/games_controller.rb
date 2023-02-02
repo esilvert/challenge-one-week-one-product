@@ -16,7 +16,7 @@ class GamesController < ApplicationController
     session[:name] = player.name
     warn "\e[101m[#{Time.now}]\t #{__FILE__}::#{__LINE__}:\e[93m ID: #{session[:id]} \e[0m"
 
-    redirect_to play_path
+    redirect_to inter_path
   end
 
   def create_params
