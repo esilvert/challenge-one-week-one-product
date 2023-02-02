@@ -38,7 +38,13 @@
               params: {value: answer, tb: session[SessionConstants::TIMEBANK_KEY]},
            form_class: 'w-full' ,
            class: 'w-full flex align-center justify-center number',
-           form: {data: { 'timeout-target': 'tb', turbo_frame: 'game' }} do
+           form: {
+             data:
+             {
+               'timeout-target': 'tb',
+               'turbo-frame': 'game',
+             }.merge(action_for_answer(answer))
+           } do
         %>
           <div class="button">
             <p class="my-5 number"><%= answer %></p>
