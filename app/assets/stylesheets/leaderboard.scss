@@ -5,6 +5,16 @@
   background-repeat: no-repeat;
   background-size: contain;
 
+  .player {
+    &:nth-of-type(2n){
+      background-color: rgba(lightgrey, 0.4);
+    }
+
+    &.self{
+      background-color: rgba(orange, 0.5);
+    }
+  }
+
   h1.message {
     font-size: 300%;
     color: var(--secondary)

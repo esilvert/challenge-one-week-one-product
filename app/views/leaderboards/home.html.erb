@@ -7,7 +7,7 @@
         <b>Position</b>  <b>Joueur</b> <b>Score</b>
       </div>
       <% @players.each.with_index do |player, index| %>
-        <div class="border-b border-dashed border-black p-3 flex align-center justify-between">
+        <div class="player border-b border-dashed border-black p-3 flex align-center justify-between <%= player.id == session[:id] ? 'self' : '' %>">
           <span class="position number <%= index < 3 ? 'gold' : 'silver' %>"><%= index + 1 %></span>
           <span class="name text-primary font-bold"><%= player.name %></span>
           <span class="score"><%= player.score || 0 %></span>
