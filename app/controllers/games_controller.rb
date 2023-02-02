@@ -37,7 +37,7 @@ class GamesController < ApplicationController
     if !session[:name]
       redirect_to new_game_path
     else
-      redirect_to play_path
+      redirect_to inter_path
     end
   end
 

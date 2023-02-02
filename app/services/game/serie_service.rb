@@ -13,7 +13,7 @@ module Game
     end
 
     def show_message?
-      (@session[SERIES_COUNT_KEY] % 10).zero?
+      (@session[SERIES_COUNT_KEY] % 10).zero? && @session[SERIES_COUNT_KEY] < 70
     end
 
     def next
