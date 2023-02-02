@@ -4,7 +4,7 @@
     <div data-slide-target="slide" data-duration="2000">
 
       <div class="centered text-center block">
-        <p class="heading text-[2rem] w-full">
+        <p class="text-[2rem] w-full message">
           <%= ['Trop facile ?', 'Un intello', 'Mmhh', 'Plus vite'].sample %>
         </p>
       </div>
@@ -12,13 +12,13 @@
 
     <div data-slide-target="slide" data-duration="1000">
       <div class="centered text-center block">
-        <p class="heading text-[2rem] w-full">
+        <p class="text-[2rem] w-full message">
           <%= ['OK', "C'est parti", 'Prends ça', 'Tu vas voir', 'Go'].sample %>
         </p>
       </div>
     </div>
     <div data-slide-target="slide" data-duration="1000">
-      <%= link_to 'Continue', play_path, data: {turbo_frame: 'game', 'slide-target': 'redirect'}, class: 'hidden' %>
+      <%= link_to 'Continue', play_path, data: {turbo_frame: 'game', 'slide-target': 'redirectTOTO'}, class: 'hidden' %>
       <!-- Necessary so the last one fully displays -->
     </div>
   </div>
