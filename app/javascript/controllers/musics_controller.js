@@ -39,6 +39,8 @@ export default class extends Controller {
   }
 
   updateIcon() {
+    if (!this.hasIconTarget) return;
+
     if (this.isMute) {
       this.iconTarget.src = this.iconTarget.dataset.unmuteIcon;
     } else {
