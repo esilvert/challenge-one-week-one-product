@@ -50,9 +50,10 @@
 	    <div id="text">
 
         <span id="sounds" data-controller="sounds" class="w-full">
-          <audio data-sounds-target="game-over" src="<%=audio_path('game_over.mp3')%>" type="audio/mpeg"></audio>
-            <audio data-sounds-target="tic" src="<%=audio_path('tic.mp3')%>" type="audio/mpeg"></audio>
-            <audio data-sounds-target="ready" src="<%=audio_path('ready.mp3')%>" type="audio/mpeg"></audio>
+          <% %w[game-over tic ready error success].each do |sound_id| %>
+            <audio data-sounds-target="<%= sound_id %>" src="<%=audio_path("#{sound_id.underscore}.mp3")%>" type="audio/mpeg"></audio>
+          <% end %>
+
           <%= yield %>
         </div>
 

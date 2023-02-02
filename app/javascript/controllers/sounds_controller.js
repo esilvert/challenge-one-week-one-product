@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ["ready", "game-over", "tic"];
+  static targets = ["ready", "game-over", "tic", "error"];
 
   connect() {
     console.log("[Sounds] Connected");
