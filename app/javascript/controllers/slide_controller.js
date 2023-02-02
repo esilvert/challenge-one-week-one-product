@@ -6,14 +6,13 @@ export default class extends Controller {
   connect() {
     console.log("[Slide] Slide initialized");
 
-    const redirection = this.element.dataset.redirectTo;
-
     this.doSlide();
 
-    if (redirection)
-      this.onSlideEnded = () => {
-        this.redirectTarget.click();
-      };
+    this.onSlideEnded = () => {
+      console.log("[Slide] Redirecting");
+
+      this.redirectTarget.click();
+    };
   }
 
   doSlide() {
