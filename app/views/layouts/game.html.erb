@@ -15,7 +15,11 @@
   <body class="game-container">
 
     <div data-controller="sounds">
-      <audio data-sounds-target="music" src="<%=audio_path('music.mp3')%>" type="audio/mpeg"/>
+      <% if is_game_scene? %>
+        <audio loop data-sounds-target="music" src="<%=audio_path('music.mp3')%>" type="audio/mpeg"/>
+      <% else %>
+        <audio loop data-sounds-target="music" src="<%=audio_path('intro.mp3')%>" type="audio/mpeg"/>
+      <% end %>
     </div>
 
 

@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ["slide"];
+  static targets = ["slide", "redirect"];
 
   connect() {
     console.log("[Slide] Slide initialized");
@@ -12,7 +12,7 @@ export default class extends Controller {
 
     if (redirection)
       this.onSlideEnded = () => {
-        window.location = redirection;
+        this.redirectTarget.click();
       };
   }
 

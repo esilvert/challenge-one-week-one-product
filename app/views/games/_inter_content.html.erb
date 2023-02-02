@@ -1,4 +1,4 @@
-<div data-controller="slide" data-redirect-to="/play">
+<%= turbo_frame_tag 'game', data: {controller: 'slide'} do %>
   <div data-slide-target="slide" data-duration="2000">
 
     <div class="centered text-center block">
@@ -16,6 +16,7 @@
     </div>
   </div>
   <div data-slide-target="slide" data-duration="1000">
+    <%= link_to 'Continue', play_path, data: {turbo_frame: 'game', 'slide-target': 'redirect'}, class: 'hidden' %>
     <!-- Necessary so the last one fully displays -->
   </div>
-</div>
+<% end %>
