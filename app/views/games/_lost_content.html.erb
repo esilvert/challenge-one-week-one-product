@@ -1,24 +1,33 @@
-<div data-controller="slide" class="text-white">
-  <div data-slide-target="slide" data-duration="500" data-slide-keep="true">
-    <h1 class="heading top-0 text-[5rem]" >Multy</h1>
-    <div class="w-full">
-      <h2 class="subheading w-fit ml-auto mr-5 my-3 text-sm">3000</h2>
-    </div>
-    <div class="centered text-center block">
-      You lost, <em>loser</em> !
-    </div>
-  </div>
+<%= turbo_frame_tag 'game', class: 'w-full' do %>
+  <div class="w-full" data-controller="slide">
 
-  <div data-slide-target="slide" data-duration="1000" data-slide-keep="true">
-    <div class="centered text-center block">
-      Your score :
-      <%= session[:series] %>
-    </div>
-  </div>
 
-  <div data-slide-target="slide" data-duration="3000" data-slide-keep="true">
-    <div class="centered text-center block">
-      <%= link_to 'Restart', restart_path, {data: { turbo_frame: 'game'}} %>
+    <% serie_count = session[SessionConstants::SERIES_COUNT_KEY] %>
+
+
+    <div data-slide-target="slide" data-duration="1000">
+      <div class="centered text-center block">
+        <p class="text-[2rem] px-5 w-full message">
+          Game Over
+        </p>
+      </div>
     </div>
+
+    <div class="centered text-center block">
+      <p class="text-[2rem] w-full message p-5" data-slide-target="slide" data-duration="2000">
+        Your score
+      </p>
+      <p data-slide-target="slide" data-duration="5000" data-slide-keep="true" class="text-[5rem] w-full message">
+        <%= session[SessionConstants::SCORE_KEY] %>
+        <p class="text-xs">lol</p>
+      </p>
+    </div>
+
+
+    <div data-slide-target="slide" data-duration="1000">
+      <%= link_to 'Leaderboard', root_path, data: {turbo_frame: 'game', 'slide-target': 'redirectTOTO'}, class: 'hidden' %>
+      <!-- Necessary so the last one fully displays -->
+    </div>
+
   </div>
-</div>
+<% end %>
