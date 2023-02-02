@@ -12,6 +12,7 @@ module SessionConstants
   GAME_LOST_KEY = :game_lost
 
   SERIES_COUNT_KEY = :series
+  CURRENT_SERIE_KEY = :current_serie
   SCORE_KEY = :score
 
   TIMEBANK_KEY = :time

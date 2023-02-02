@@ -49,12 +49,18 @@
 	    </div>
 	    <div id="text">
 
-        <span id="sounds" data-controller="sounds" class="w-full">
+        <span id="sounds"
+          data-controller="sounds"
+          class="w-full"
+        >
           <% %w[game-over tic ready error success].each do |sound_id| %>
             <audio data-sounds-target="<%= sound_id %>" src="<%=audio_path("#{sound_id.underscore}.mp3")%>" type="audio/mpeg"></audio>
           <% end %>
 
-          <%= yield %>
+          <div id="modulate" data-series-target="modulate" class="modulate"></div>
+
+            <%= yield %>
+          </div>
         </div>
 
         <p class="absolute top-2 right-2 h-fit w-fit text-primary font-bold text-xs z-10 w-fit h-fit hidden">

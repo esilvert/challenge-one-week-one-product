@@ -7,6 +7,8 @@ export default class extends Controller {
 
   static targets = ["progress", "tb"];
 
+  onIntervalCallbacks = [];
+
   connect() {
     console.log("[Timeout] Timeout initialized");
 
@@ -29,11 +31,15 @@ export default class extends Controller {
   private;
 
   onInterval() {
+    this.updateTimebank();
+
     if (this.hasProgressTarget) {
       this.updateProgressBar();
     }
 
-    this.updateTimebank();
+    this.onIntervalCallbacks.forEach((callback) =>
+      callback(this.currentTimebank)
+    );
   }
 
   updateProgressBar() {
@@ -45,7 +51,8 @@ export default class extends Controller {
     //  progress,
     //});
 
-    console.log({ timbank: this.currentTimebank });
+    // console.log({ timbank: this.currentTimebank });
+    console.log(this.currentTimebank);
     this.progressTarget.value = Math.ceil(progress * 100.0);
   }
 
@@ -59,8 +66,9 @@ export default class extends Controller {
     });
 
     if (this.currentTimebank < 0) {
+      window.clearInterval(this.interval);
       console.log("[Timeout] Timeout reached, switching scene.");
-      window.location = "/lose-screen";
+      //window.location = "/lose-screen";
     }
   }
 }

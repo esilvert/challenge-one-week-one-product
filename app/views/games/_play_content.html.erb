@@ -1,9 +1,10 @@
 <%= turbo_frame_tag 'game', class: 'w-full' do %>
   <div class="w-full",
     data-controller="timeout series"
-    data-serie-length="<%= session[SessionConstants::SERIES_COUNT_KEY]%>"
+    data-question-no="<%= session[SessionConstants::SERIES_COUNT_KEY]%>"
     data-timebank="<%= session[SessionConstants::TIMEBANK_KEY] || 0 %>"
     data-time-coef="<%= session[SessionConstants::TIME_COEF_KEY] || 1 %>"
+    data-current-serie="<%= session[SessionConstants::CURRENT_SERIE_KEY]%>"
   >
 
     <div class="progress-container absolute  top-0 flex items-center justify-center">
@@ -20,8 +21,6 @@
         <% end %>
       </button>
     </div>
-
-    Score : <%= session[:series] %>
 
     <div class="flex justify-center items-center text-center px-4 number" id="question">
       <div class="text-primary text-[110px] mx-auto w-full font-bold number">

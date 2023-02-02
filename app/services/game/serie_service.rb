@@ -23,6 +23,7 @@ module Game
     def on_success
       @session[SERIES_COUNT_KEY] ||= 0
       @session[SERIES_COUNT_KEY] += 1
+      @session[CURRENT_SERIE_KEY] += 1
 
       @session[TIMEBANK_KEY] ||= 0
       @session[TIMEBANK_KEY] += 250
@@ -30,6 +31,7 @@ module Game
 
     def on_error
       @session[TIMEBANK_KEY] -= 1000
+      @session[CURRENT_SERIE_KEY] = 0
 
       @session[GAME_LOST_KEY] = true if @session[TIMEBANK_KEY].negative?
     end
@@ -37,6 +39,7 @@ module Game
     def reset
       @session[SERIES_COUNT_KEY] = 0
       @session[TIMEBANK_KEY] = 30_000
+      @session[CURRENT_SERIE_KEY] = 0
     end
 
     def update_score

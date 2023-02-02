@@ -279,6 +279,29 @@
   color: var(--primary);
 }
 
+
+.game .modulate{
+  pointer-events: none;
+
+  &.red{
+    background: radial-gradient(transparent 40%, rgba(red, 0.3));
+  }
+  &.blue{
+    background: radial-gradient(transparent 40%, rgba(pink, 0.3));
+  }
+  &.black{
+    background: radial-gradient(transparent 40%, rgba(black, 1));
+  }
+
+  z-index: 1000;
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+
 @keyframes move {
 	to {
 		background-position-y: 2000px;
