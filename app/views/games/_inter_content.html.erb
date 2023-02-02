@@ -5,7 +5,11 @@
 
       <div class="centered text-center block">
         <p class="text-[2rem] w-full message">
-          <%= ['Trop facile ?', 'Un intello', 'Mmhh', 'Plus vite'].sample %>
+          <% if session[SessionConstants::SERIES_COUNT_KEY] == 0 %>
+            Ready
+          <% else %>
+            <%= ['Trop facile ?', 'Un intello', 'Mmhh', 'Plus vite'].sample %>
+          <% end %>
         </p>
       </div>
     </div>
@@ -13,7 +17,11 @@
     <div data-slide-target="slide" data-duration="1000">
       <div class="centered text-center block">
         <p class="text-[2rem] w-full message">
-          <%= ['OK', "C'est parti", 'Prends ça', 'Tu vas voir', 'Go'].sample %>
+          <% if session[SessionConstants::SERIES_COUNT_KEY] == 0 %>
+            Go&nbsp;!
+          <% else %>
+            <%= ['OK', "C'est parti", 'Prends ça', 'Tu vas voir', 'Go'].sample %>
+          <% end %>
         </p>
       </div>
     </div>
