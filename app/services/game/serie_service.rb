@@ -40,10 +40,12 @@ module Game
       @session[SERIES_COUNT_KEY] = 0
       @session[TIMEBANK_KEY] = 30_000
       @session[CURRENT_SERIE_KEY] = 0
+      @session[SCORE_KEY] = 0
     end
 
     def update_score
-      @session[SCORE_KEY] = @session[SERIES_COUNT_KEY] * 123
+      @session[SCORE_KEY] += @session[TIMEBANK_KEY] / 100 * @session[SERIES_COUNT_KEY] / 10
+      pp @session[SCORE_KEY]
     end
 
     def generate_number

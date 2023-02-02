@@ -67,6 +67,8 @@ class GamesController < ApplicationController
   end
 
   def lost
+    Player.find(session[:id]).update!(score: session[SessionConstants::SCORE_KEY])
+
     respond_to do |format|
       format.html {}
       format.turbo_stream do
