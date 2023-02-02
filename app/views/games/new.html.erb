@@ -1,23 +1,28 @@
 
-<h1 class="text-primary mt-[-100px] text-[2rem] mb-5" >Nom du joueur</h1>
-  <div class="text-center px-4" id="question">
-    <div>
-      <%= form_tag(game_path) do %>
-        <%= text_field_tag(
-          'name',
-          nil,
-           placeholder: 'joueur',
-          class: "text-primary bg-white border border-pink-300 border-4 my-2 w-full text-xl font-bold focus:border-green-500",
-          minlength: 3,
-          value: session[:name]
-          )
-        %>
-        <div class="text-right">
-          <%= submit_tag 'Valider',
-             class: "text-black bg-white border border-pink-300 border-4 p-1 px-5 text-sm my-2 font-bold ml-auto mt-8"
-          %>
-        </div>
-      <% end %>
+<div class=" absolute top-5 " >
+  <%= image_tag 'logo.png', class: "w-[180px] h-[80px]" %>
+</div>
+
+<div class="text-center px-4" id="question">
+  <%= form_tag(game_path) do %>
+    <p class="text-primary text-justify max-w-[316px]">
+      Répond à une série de calculs de plus en plus dure et devient le maître du jeu !
+    </p>
+
+    <%= text_field_tag(
+      'name',
+      nil,
+      placeholder: 'joueur',
+      class: "button border-0 text-primary bg-transparent my-2 max-w-[316px] text-xl font-bold",
+      minlength: 3,
+      value: session[:name]
+      )
+    %>
+
+    <div class=" w-full flex justify-end">
+      <%= submit_tag 'Valider',
+         class: "button button-red p-1 max-w-[200px]"
+      %>
     </div>
-  </div>
+  <% end %>
 </div>

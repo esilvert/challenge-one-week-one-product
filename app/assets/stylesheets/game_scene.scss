@@ -139,6 +139,11 @@
 }
 
 @font-face{
+  font-family: 'Font';
+  src: url('font.ttf');
+}
+
+@font-face{
   font-family: 'Number';
   src: url('number.ttf');
 }
@@ -149,7 +154,7 @@
 }
 
 .game *{
-  font-family: 'Number';
+  font-family: 'Font';
 }
 
 .game .number {
@@ -236,17 +241,30 @@
 
 .game .button{
   width: 100%;
-  min-width: 316px;
+  //min-width: 316px;
 
+  text-transform: uppercase;
   min-height: 75px; // Image size
   background-repeat: no-repeat;
   background-position: center;
   background-image: url("button.png");
+  background-size: contain;
 
-  &:active {
+  &.button-red{
+    background-image: url("button_red.png");
+  }
+}
+
+.game input{
+  &:placeholder{
+    margin-left: 20px;
+  }
+}
+
+
+.game div.button:active {
     background-image: url("button_active.png");
     color: #FFF1FE;
-  }
 }
 
 .text-primary {
