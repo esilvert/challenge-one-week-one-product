@@ -1,0 +1,25 @@
+<div class="w-full p-5">
+  <div class="leaderboard p-5 pr-6 min-w-[334px] max-h-[557px]">
+    <h1 class="message max-w-full text-center">Classement</h1>
+
+    <div class="player-list max-h-[440px] overflow-y-scroll px-5">
+      <div class="border-bottom border-dash flex align-center justify-between">
+        <b>Position</b>  <b>Joueur</b> <b>Score</b>
+      </div>
+      <% @players.each.with_index do |player, index| %>
+        <div class="border-b border-dashed border-black p-3 flex align-center justify-between">
+          <span class="position number <%= index < 3 ? 'gold' : 'silver' %>"><%= index + 1 %></span>
+          <span class="name text-primary font-bold"><%= player.name %></span>
+          <span class="score"><%= player.score || 0 %></span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+
+  <div class="w-1/2 mx-auto">
+    <div class="button flex items-center justify-center">
+      <%= link_to 'Rejouer', root_path, class: 'h-full mb-1' %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+.leaderboard{
+  --secondary: #3E00FF;
+
+  background-image: url('leaderboard.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  h1.message {
+    font-size: 300%;
+    color: var(--secondary)
+  }
+
+  .position{
+    color: var(--primary);
+  }
+
+  .name, .score {
+    color: var(--secondary);
+  }
+
+  .position {
+    padding: 0.25rem 0.85rem;
+    border: 1px grey solid;
+    border-radius: 100%;
+
+    &.gold{
+      border: 3px gold solid;
+    }
+  }
+}

@@ -23,7 +23,7 @@
       <% end %>
       </div>
 
-      <% if request.path != '/' %>
+      <% if request.path != root_path && request.path != leaderboard_path %>
         <button type="button"
           class="absolute bottom-[5px] right-[5px] z-20"
           data-action="click->sounds#toggleMute"
