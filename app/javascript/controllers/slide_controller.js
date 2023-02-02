@@ -9,7 +9,7 @@ export default class extends Controller {
     this.doSlide();
 
     this.onSlideEnded = () => {
-      this.redirectTarget.click();
+      if (this.hasRedirectTarget) this.redirectTarget.click();
     };
   }
 
