@@ -1,33 +1,45 @@
 <%= turbo_frame_tag 'game', class: 'w-full' do %>
   <div class="w-full" data-controller="slide">
 
+
+    <% serie_count = session[SessionConstants::SERIES_COUNT_KEY] %>
+
+    <%
+      messages = [
+        ["Ready&nbsp;?", "Go !"],
+        ["Trop facile&nbsp;?", "ok"],
+        ["T’en veux encore ?"],
+        ["Quel intello&nbsp;!", "Prend ça"],
+        ["On va corser le jeu&nbsp;!"],
+        ["T’es toujours là&nbsp;?"],
+        ["Tu vas perdre."],
+      ]
+
+      current_messages = messages[serie_count]
+    %>
+
+
     <div data-slide-target="slide" data-duration="2000">
-
       <div class="centered text-center block">
-        <p class="text-[2rem] w-full message">
-          <% if session[SessionConstants::SERIES_COUNT_KEY] == 0 %>
-            Ready
-          <% else %>
-            <%= ['Trop facile ?', 'Un intello', 'Mmhh', 'Plus vite'].sample %>
-          <% end %>
+        <p class="text-[2rem] px-5 w-full message">
+          <%= current_messages[0].html_safe %>
         </p>
       </div>
     </div>
 
+    <% if current_messages.count > 1 %>
+      <div data-slide-target="slide" data-duration="2000">
+
+        <div class="centered text-center block">
+          <p class="text-[2rem] w-full message">
+            <%= current_messages[1].html_safe %>
+          </p>
+        </div>
+    <% end %>
+
     <div data-slide-target="slide" data-duration="1000">
-      <div class="centered text-center block">
-        <p class="text-[2rem] w-full message">
-          <% if session[SessionConstants::SERIES_COUNT_KEY] == 0 %>
-            Go&nbsp;!
-          <% else %>
-            <%= ['OK', "C'est parti", 'Prends ça', 'Tu vas voir', 'Go'].sample %>
-          <% end %>
-        </p>
-      </div>
-    </div>
-    <div data-slide-target="slide" data-duration="1000">
-      <%= link_to 'Continue', play_path, data: {turbo_frame: 'game', 'slide-target': 'redirectTOTO'}, class: 'hidden' %>
+      <%= link_to 'Continue', play_path, data: {turbo_frame: 'game', 'slide-target': 'redirect'}, class: 'hidden' %>
       <!-- Necessary so the last one fully displays -->
     </div>
-  </div>
+      </div>
 <% end %>
