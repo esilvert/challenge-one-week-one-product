@@ -10,6 +10,7 @@ module GamesHelper
   MUTED_SCENE_PATHS = %w[
     /splash
     /leaderboard
+    /
   ].freeze
 
   def session_constants
