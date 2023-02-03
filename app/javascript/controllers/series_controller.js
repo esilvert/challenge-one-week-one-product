@@ -51,11 +51,27 @@ export default class extends Controller {
     const top = document.getElementById("top");
     top.classList.add("gradient-red");
     top.classList.remove("gradient-blue");
+
+    const ground = document.getElementById("ground");
+    ground.classList.add("gradient-red");
+    ground.classList.remove("gradient-blue");
+
+    const bottom = document.getElementById("bottom");
+    bottom.classList.add("gradient-red");
+    bottom.classList.remove("gradient-blue");
   }
 
   setupEasy() {
     const top = document.getElementById("top");
     top.classList.add("gradient-blue");
     top.classList.remove("gradient-red");
+
+    const ground = document.getElementById("ground");
+    ground.classList.add("gradient-blue");
+    ground.classList.remove("gradient-red");
+
+    const bottom = document.getElementById("bottom");
+    bottom.classList.add("gradient-blue");
+    bottom.classList.remove("gradient-red");
   }
 }

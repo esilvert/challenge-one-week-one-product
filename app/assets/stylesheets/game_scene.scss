@@ -1,16 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Russo+One&family=Yellowtail&display=swap");
 :root {
 	--background: #1F1F1F;
-  --top-color: #4fcfef;
-  --top-color-lighten:  #5fDfFf11;
-  --top-color-hard: #cd5931;
-  --top-color-hard-lighten:  #cd593111;
+  --top-color: #4fcfef99;
+  --top-color-lighten:  #170055AA;
+  --top-color-hard: #cd5931EE;
+  --top-color-hard-alpha: #cd5931AF;
+  --top-color-hard-lighten:  #cd593155;
+  --top-color-hard-lighten-blue:  #17005555;
 
   --primary: #FF49E8;
 
+  --grid-color:#FFA5F4;
+  --grid-color-hard: #ED9980;
+;
+
   --ground-upper-color: #5C08F3;
-  --ground-middle-color: #3E00CD;
-  --ground-lower-color: #5C08F3;
+  --ground-middle-color: #5C08F3;
+  --ground-lower-color: #170055AA;
 }
 
 *::before,
@@ -50,16 +56,18 @@
 
 .gradient-blue {
 	background: linear-gradient(
-    transparent 40%,
-    var(--top-color-lighten) 95%,
+    transparent 60%,
+    var(--top-color-lighten) 90%,
     var(--top-color) 99%,
     white 100%);
 }
 
 .gradient-red {
-	background: linear-gradient(
-    transparent 40%,
-    var(--top-color-hard-lighten) 95%,
+  	background: linear-gradient(
+    transparent 30%,
+    var(--top-color-hard-lighten-blue) 60%,
+    var(--top-color-hard-lighten) 90%,
+    var(--top-color-hard-alpha) 98%,
     var(--top-color-hard) 99%,
     white 100%);
 }
@@ -89,22 +97,23 @@
 	width: 100%;
 	height: 100%;
 	transform: perspective(500px) rotateX(65deg);
-	//transform: perspective(150px) rotateX(55deg); // TODO: voir avec Laurie
+
 	bottom: -15%;
-	// background: linear-gradient(
-	// 	90deg,
-	// 	hotpink -60%,
-	// 	transparent 40%,
-	// 	transparent 60%,
-	// 	hotpink 140%
-	// );
-  background: linear-gradient( // TODO: voir avec Laurie
+  background: linear-gradient(
 		0deg,
-		var(--ground-upper-color) 20% ,
-		var(--ground-middle-color) 30%,
-    var(--ground-lower-color) 100%
+		var(--ground-lower-color) 20% ,
+		var(--ground-middle-color) 43%,
+    var(--grid-color) 100%
 	);
 	clip-path: polygon(0 100%, 0 55%, 100% 55%, 100% 100%);
+
+  &.gradient-red{
+    background: linear-gradient(
+		  0deg,
+		  #1B0047 13%,
+		  #3E0031 30%,
+	  );
+  }
 }
 
 #ground {
@@ -113,18 +122,28 @@
 	width: 100%;
 	height: 55%;
 	background: repeating-linear-gradient(
-			var(--primary) 1px,
+			var(--grid-color) 4px,
 			transparent 6px,
 			transparent 30px
 		),
 		          repeating-linear-gradient(90deg,
-                                        var(--primary) 1px,
+                                        var(--grid-color) 4px,
                                         transparent 6px,
-                                        transparent 60px); // TODO voir avec Laurie
-	// filter: drop-shadow(0 0 1px white)
-  //         drop-shadow(0 0 1px white)
-	// 	      drop-shadow(0 0 1px white);
-	animation: move 100s linear infinite; // TODO synchro avec la music BPM
+                                        transparent 60px);
+
+	animation: move 100s linear infinite;
+
+  &.gradient-red{
+	  background: repeating-linear-gradient(
+			var(--grid-color-hard) 4px,
+			transparent 6px,
+			transparent 30px
+		),
+		            repeating-linear-gradient(90deg,
+                                          var(--grid-color-hard) 4px,
+                                          transparent 6px,
+                                          transparent 60px);
+  }
 }
 
 #text {
