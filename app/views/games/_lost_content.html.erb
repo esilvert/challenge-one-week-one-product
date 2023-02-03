@@ -24,8 +24,8 @@
     </div>
 
 
-    <div data-slide-target="slide" data-duration="1000" class="hidden">
-      <%= link_to 'Leaderboard', leaderboard_path, data: {turbo_frame: 'game', 'slide-target': 'redirect'}, class: 'hidden' %>
+    <div data-slide-target="slide" data-duration="1000" class="hidden flex items-center justify-center">
+      <%= link_to 'Leaderboard', leaderboard_path, data: {turbo_frame: 'game', 'slide-target': 'redirect'}, class: "button p-3 text-center text-primary max-w-[200px] flex justify-center items-center" %>
       <!-- Necessary so the last one fully displays -->
     </div>
 
