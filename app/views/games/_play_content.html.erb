@@ -25,7 +25,7 @@
     <div class="flex justify-center items-center text-center px-4 number" id="question">
       <div class="text-primary text-[110px] mx-auto w-full font-bold number">
         <%= session[SessionConstants::LEFT_OPERAND_KEY] %>
-        <%= session[SessionConstants::OPERATOR_KEY] %>
+        <%= better_operator(session[SessionConstants::OPERATOR_KEY]) %>
         <%= session[SessionConstants::RIGHT_OPERAND_KEY] %>
       </div>
     </div>

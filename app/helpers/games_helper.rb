@@ -40,4 +40,10 @@ module GamesHelper
 
     result
   end
+
+  def better_operator(op)
+    return op unless op == :*
+
+    '×'
+  end
 end
