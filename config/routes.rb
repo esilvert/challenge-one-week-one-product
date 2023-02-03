@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   post 'answer', to: 'games#answer'
 
-  get 'lose-screen', to: 'games#lost'
+  get 'lost', to: 'games#lost'
 
   get 'leaderboard', to: 'leaderboards#home'
 end

@@ -68,7 +68,7 @@ export default class extends Controller {
     if (this.currentTimebank < 0) {
       window.clearInterval(this.interval);
       console.log("[Timeout] Timeout reached, switching scene.");
-      window.location = "/lose-screen";
+      window.location = "/lost";
     }
   }
 }

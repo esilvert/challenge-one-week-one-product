@@ -47,7 +47,7 @@ class GamesController < ApplicationController
       service.create_question
     end
 
-    redirect_to lose_screen_path and return if question_service.series_ended?
+    redirect_to lost_path and return if question_service.series_ended?
 
     respond_to do |format|
       format.turbo_stream do
