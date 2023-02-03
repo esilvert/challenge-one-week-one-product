@@ -12,6 +12,8 @@ class GamesController < ApplicationController
   def create
     player = Player.create(**create_params)
 
+    Game::QuestionService.new(session:).reset
+
     session[:id] = player.id
     session[:name] = player.name
     warn "\e[101m[#{Time.now}]\t #{__FILE__}::#{__LINE__}:\e[93m ID: #{session[:id]} \e[0m"

@@ -8,7 +8,6 @@ module Game
     FAILED_REMOVED_TIME = 5000
     INITIAL_TIMEBANK = 60_000
     UNLIMITED_MODE_THRESHOLD = 70
-    HARD_MODE_THRESHOLD = 40
 
     def initialize(session:)
       @session = session
@@ -31,7 +30,7 @@ module Game
       @session[SERIES_COUNT_KEY] += 1
       @session[CURRENT_SERIE_KEY] += 1
 
-      @session[CURRENT_SERIE_KEY] = 0 if @session[SERIES_COUNT_KEY] == HARD_MODE_THRESHOLD
+      @session[CURRENT_SERIE_KEY] = 0 if show_message?
 
       @session[TIMEBANK_KEY] ||= 0
       @session[TIMEBANK_KEY] += SUCCESS_ADDED_TIME
