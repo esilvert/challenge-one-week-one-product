@@ -13,6 +13,15 @@
           <span class="flex items-center score"><%= player.score || 0 %></span>
         </div>
       <% end %>
+
+      <% unless @is_ranked %>
+        <hr/>
+        <div class="player border-b border-dashed border-black p-3 flex align-center justify-between self %>">
+          <span class="flex items-center position number <%= @position < 3 ? 'gold' : 'silver' %>"><%= @position %></span>
+          <span class="flex items-center name text-primary font-bold"><%= @player.name %></span>
+          <span class="flex items-center score"><%= @player.score || 0 %></span>
+        </div>
+      <% end %>
     </div>
   </div>
 
