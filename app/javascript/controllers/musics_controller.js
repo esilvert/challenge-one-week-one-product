@@ -17,7 +17,6 @@ export default class extends Controller {
     window.setTimeout(() => {
       this.isMute = this.musicTarget.paused || this.musicTarget.duration == 0;
       this.updateIcon();
-      this.playMusic();
     }, 100);
   }
 

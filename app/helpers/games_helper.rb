@@ -5,15 +5,23 @@ module GamesHelper
     /play
     /inter
     /restart
-    /lose-screen
+  ].freeze
+
+  MUTED_SCENE_PATHS = %w[
+    /splash
+    /leaderboard
   ].freeze
 
   def session_constants
     SesssionConstants
   end
 
-  def is_game_scene?
+  def game_scene?
     GAME_SCENE_PATHS.include?(request.path)
+  end
+
+  def muted_scene?
+    MUTED_SCENE_PATHS.include?(request.path)
   end
 
   def right_answer?(answer)
