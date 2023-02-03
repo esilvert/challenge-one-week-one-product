@@ -254,15 +254,21 @@
     width: 100%;
 
     --gradient: linear-gradient(180deg, #001855 -0.06%, #004CBF 10.55%, #3E00FF 11.51%, #4A7ADA 21.56%, #4C8DD4 21.57%, #82BCE4 30.63%, #A9DEEF 38.41%, #C2FFF4 44.58%, #CBFFEA 48.39%, #1D9666 53.85%, #0DFF9F 73.23%, #53FFBB 74.87%, #75FBC6 81.82%, #99FFD7 86.9%, #9FFFD9 89.53%, #E0FBF0 99.88%);
+    --gradient-red: linear-gradient(180deg, #620101 -0.06%, #A20101 6.19%, #C50808 10.87%, #EA0000 16.08%, #E10000 21.56%, #F55D5D 30.63%, #FD951B 34.29%, #FF9B00 44.57%, #FCA523 44.58%, #FFBE18 48.39%, #FF8A00 53.85%, #FFB800 62.92%, #FF7E7E 74.87%, #FF6FDF 81.82%, #FF99F5 86.9%, #FC61FF 89.53%, #F800D0 99.88%);
 
 
     background-color: transparent;
-    &::-moz-progress-bar { background-image: var(--gradient); }
 
     &::-webkit-progress-bar { background-color: transparent; }
-    &::-webkit-progress-value { background-image: var(--gradient); }
-    color: red;
 
+    &, &.gradient-blue{
+      &::-webkit-progress-value { background-image: var(--gradient); }
+      &::-moz-progress-bar { background-image: var(--gradient); }
+    }
+    &, &.gradient-red{
+      &::-webkit-progress-value { background-image: var(--gradient-red); }
+      &::-moz-progress-bar { background-image: var(--gradient-red); }
+    }
   }
 }
 
@@ -304,12 +310,22 @@
 
   &.red{
     background: radial-gradient(transparent 40%, rgba(#FEB21E, 0.8));
+    @media(min-width: 700px){
+      background: radial-gradient(transparent 70%, rgba(#FEB21E, 0.8));
+    }
   }
   &.blue{
     background: radial-gradient(transparent 40%, rgba(#FF49E8, 0.5));
+    @media(min-width: 700px){
+      background: radial-gradient(transparent 70%, rgba(#FF49E8, 0.5));
+    }
   }
   &.black{
     background: radial-gradient(transparent 40%, rgba(darkred, 0.8));
+    @media(min-width: 700px){
+      background: radial-gradient(transparent 70%, rgba(darkred, 0.8));
+    }
+
   }
 
   z-index: 1000;

@@ -59,6 +59,10 @@ export default class extends Controller {
     const bottom = document.getElementById("bottom");
     bottom.classList.add("gradient-red");
     bottom.classList.remove("gradient-blue");
+
+    const progress = document.getElementById("progress");
+    progress.classList.add("gradient-red");
+    progress.classList.remove("gradient-blue");
   }
 
   setupEasy() {
@@ -73,5 +77,9 @@ export default class extends Controller {
     const bottom = document.getElementById("bottom");
     bottom.classList.add("gradient-blue");
     bottom.classList.remove("gradient-red");
+
+    const progress = document.getElementById("progress");
+    progress.classList.add("gradient-blue");
+    progress.classList.remove("gradient-red");
   }
 }
