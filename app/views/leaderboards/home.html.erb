@@ -1,8 +1,8 @@
 <div class="w-full p-5">
-  <div class="leaderboard p-5 pr-6 min-w-[334px] max-h-[557px]">
+  <div class="leaderboard p-5 pr-6 max-w-[330px] max-h-[560px] sm:max-w-[60vw] mx-auto">
     <h1 class="message max-w-full text-center">Classement</h1>
 
-    <div class="player-list max-h-[440px] overflow-y-scroll px-5">
+    <div class="player-list max-h-[440px] overflow-y-scroll px-5 sm:pr-8">
       <div class="border-bottom border-dash flex align-center justify-between">
         <b>Position</b>  <b>Joueur</b> <b>Score</b>
       </div>
@@ -17,7 +17,7 @@
   </div>
 
 
-  <div class="w-1/2 mx-auto">
+  <div class="w-1/2 mx-auto sm:mt-5">
     <div class="button flex items-center justify-center">
       <%= link_to 'Rejouer', root_path, class: 'h-full mb-1' %>
     </div>

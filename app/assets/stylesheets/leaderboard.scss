@@ -3,7 +3,7 @@
 
   background-image: url('leaderboard.png');
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
 
   .player {
     &:nth-of-type(2n){
