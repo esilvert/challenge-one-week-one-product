@@ -14,6 +14,7 @@ export default class extends Controller {
       const sound = this[`${event.params.id}Target`];
 
       sound.currentTime = 0;
+      sound.loop = false;
       sound.play();
     } else console.log(`[Sounds] Unrocognized sound id: ${event.params.id}`);
   }
