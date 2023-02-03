@@ -26,11 +26,24 @@
 
   .name, .score {
     color: var(--secondary);
-
-    max-width: 100px;
-    text-overflow: ellipsis;
-    overflow: hidden;
   }
+
+  .name {
+    max-width: 100px;
+    max-height: 38px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+//
+//     &::-webkit-scrollbar {
+//       display: none;
+//     }
+//
+//     /* Hide scrollbar for IE, Edge and Firefox */
+//     -ms-overflow-style: none;  /* IE and Edge */
+//     scrollbar-width: none;  /* Firefox */
+  }
+
 
   .position {
     padding: 0.25rem 0.85rem;
