@@ -6,7 +6,7 @@ module Game
 
     SUCCESS_ADDED_TIME = 500
     FAILED_REMOVED_TIME = 1000
-    INITIAL_TIMEBANK = 30_000
+    INITIAL_TIMEBANK = 60_000
     UNLIMITED_MODE_THRESHOLD = 70
 
     def initialize(session:)
@@ -55,19 +55,19 @@ module Game
     def generate_number
       case serie_length
       when 0...10
-        rand(1..10)
+        rand(1..10) # +
       when 10...20
-        rand(1..10)
+        rand(1..10) # -
       when 20...30
-        rand(1..10)
+        rand(1..10) # *
       when 30...40
-        rand(1..20)
+        rand(1..10) # + -
+      when 40...30
+        rand(1..10) # + - *
       when 40...50
-        rand(1..20)
-      when 50...60
-        rand(1..20)
+        rand(1..20) # + -
       else
-        rand(1..20)
+        rand(1..20) # + - *
       end
     end
 
@@ -78,13 +78,13 @@ module Game
       when 10...20
         %i[-].sample
       when 20...30
-        %i[+ -].sample
+        %i[*].sample
       when 30...40
         %i[+ -].sample
       when 40...50
-        %i[*].sample
+        %i[+ - *].sample
       when 50...60
-        %i[*].sample
+        %i[+ -].sample
       else
         %i[+ - *].sample
       end
