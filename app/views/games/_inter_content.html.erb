@@ -19,7 +19,12 @@
     %>
 
 
-    <div data-slide-target="slide" data-duration="2000" class="hidden">
+    <div
+      <% if serie_count.zero? %>
+        data-controller="play-sound" data-sound-id="ready" data-sound-delay="500"
+      <% end %>
+
+      data-slide-target="slide" data-duration="2000" class="hidden">
       <div class="centered text-center block">
         <p class="text-[2rem] px-5 w-full message">
           <%= current_messages[0].html_safe %>
@@ -28,7 +33,11 @@
     </div>
 
     <% if current_messages.count > 1 %>
-      <div data-slide-target="slide" data-duration="2000" class="hidden">
+      <div
+        <% if serie_count.zero?%>
+          data-controller="play-sound" data-sound-id="go" data-sound-delay="2000"
+        <% end %>
+        data-slide-target="slide" data-duration="2000" class="hidden">
 
         <div class="centered text-center block">
           <p class="text-[2rem] w-full message">

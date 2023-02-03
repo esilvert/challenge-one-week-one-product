@@ -5,6 +5,7 @@ export default class extends Controller {
     console.log("[PlaySound] Connected");
 
     const soundId = this.element.dataset.soundId;
+    const delay = parseInt(this.element.dataset.soundDelay ?? "1000");
 
     window.setTimeout(() => {
       const soundsControllerElement = document.getElementById("sounds");
@@ -17,7 +18,7 @@ export default class extends Controller {
         );
 
       soundsController.play({ params: { id: soundId } });
-    }, 1000);
+    }, delay);
   }
 
   disconnect() {}
