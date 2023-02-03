@@ -3,6 +3,7 @@ import { Controller } from "@hotwired/stimulus";
 export default class extends Controller {
   HARD_MODE_THRESHOLD = 40;
   ON_FIRE_THRESHOLD = 5;
+  ON_FIRE_ENABLED_AT = 0;
 
   static targets = [""];
 
