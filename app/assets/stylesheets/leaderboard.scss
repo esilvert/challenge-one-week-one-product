@@ -26,15 +26,19 @@
 
   .name, .score {
     color: var(--secondary);
+
+    max-width: 100px;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
   .position {
     padding: 0.25rem 0.85rem;
-    border: 1px grey solid;
+    border: 1px #3E00FF solid;
     border-radius: 100%;
 
     &.gold{
-      border: 3px gold solid;
+      border: 3px #FEB21E solid;
     }
   }
 }
