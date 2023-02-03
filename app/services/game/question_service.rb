@@ -11,9 +11,17 @@ module Game
 
     def create_question
       # TODO: move in a difficulty service or something
-      left = @serie.generate_number
-      right = @serie.generate_number
-      operator = @serie.generate_operator
+      left = 0
+      right = 0
+      operator = :+
+
+      loop do
+        left = @serie.generate_number
+        right = @serie.generate_number
+        operator = @serie.generate_operator
+        break if operator != :- || left > right
+      end
+
       answer = left.public_send(operator, right)
 
       @session[LEFT_OPERAND_KEY] = left
@@ -22,11 +30,13 @@ module Game
       @session[ANSWER_KEY] = answer.to_s
       @session[IS_COMPLETE_KEY] = false
 
-      @session[ALL_ANSWERS_KEY] = [
-        answer,
-        rand(([answer - 10, 1].max)..(answer + 10)),
-        rand(([answer - 10, 1].max)..(answer + 10))
-      ].shuffle
+      @session[ALL_ANSWERS_KEY] = (
+        [answer] +
+        (
+          (
+          [0, (answer - 10)].max..(answer + 10)
+        ).to_a - [answer]).sample(2)
+      ).shuffle
     end
 
     def question_in_progress?
