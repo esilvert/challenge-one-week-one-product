@@ -4,6 +4,11 @@ module Game
   class SerieService
     include SessionConstants
 
+    SUCCESS_ADDED_TIME = 500
+    FAILED_REMOVED_TIME = 1000
+    INITIAL_TIMEBANK = 30_000
+    UNLIMITED_MODE_THRESHOLD = 70
+
     def initialize(session:)
       @session = session
     end
@@ -13,7 +18,7 @@ module Game
     end
 
     def show_message?
-      (@session[SERIES_COUNT_KEY] % 10).zero? && @session[SERIES_COUNT_KEY] < 70
+      (@session[SERIES_COUNT_KEY] % 10).zero? && @session[SERIES_COUNT_KEY] < UNLIMITED_MODE_THRESHOLD
     end
 
     def update_timebank(tb)
@@ -26,11 +31,11 @@ module Game
       @session[CURRENT_SERIE_KEY] += 1
 
       @session[TIMEBANK_KEY] ||= 0
-      @session[TIMEBANK_KEY] += 250
+      @session[TIMEBANK_KEY] += SUCCESS_ADDED_TIME
     end
 
     def on_error
-      @session[TIMEBANK_KEY] -= 1000
+      @session[TIMEBANK_KEY] -= FAILED_REMOVED_TIME
       @session[CURRENT_SERIE_KEY] = 0
 
       @session[GAME_LOST_KEY] = true if @session[TIMEBANK_KEY].negative?
@@ -38,7 +43,7 @@ module Game
 
     def reset
       @session[SERIES_COUNT_KEY] = 0
-      @session[TIMEBANK_KEY] = 30_000
+      @session[TIMEBANK_KEY] = INITIAL_TIMEBANK
       @session[CURRENT_SERIE_KEY] = 0
       @session[SCORE_KEY] = 0
     end
