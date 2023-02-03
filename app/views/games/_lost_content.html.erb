@@ -18,7 +18,7 @@
         Your score
       </p>
       <p data-slide-target="slide" data-duration="5000" data-slide-keep="true" class="text-[5rem] w-full message">
-        <%= session[SessionConstants::SCORE_KEY] %>
+        <%= session[SessionConstants::SCORE_KEY].to_i %>
         <p class="text-xs">lol</p>
       </p>
     </div>
