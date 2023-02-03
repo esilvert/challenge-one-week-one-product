@@ -17,7 +17,7 @@ export default class extends Controller {
         );
 
       soundsController.play({ params: { id: soundId } });
-    }, 100);
+    }, 1000);
   }
 
   disconnect() {}
