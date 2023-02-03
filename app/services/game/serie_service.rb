@@ -44,8 +44,7 @@ module Game
     end
 
     def update_score
-      @session[SCORE_KEY] += @session[TIMEBANK_KEY] / 100 * @session[SERIES_COUNT_KEY] / 10
-      pp @session[SCORE_KEY]
+      @session[SCORE_KEY] += @session[TIMEBANK_KEY] / 100 * @session[SERIES_COUNT_KEY] / 10.0
     end
 
     def generate_number
