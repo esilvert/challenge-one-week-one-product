@@ -16,7 +16,8 @@
       required: true,
       class: "button border-0 text-primary bg-transparent my-2 max-w-[316px] text-xl font-bold",
       minlength: 3,
-      value: session[:name],
+      # value: session[:name], # DO NOT PREFILL
+      # On safari mobile you need to enter a name before allowing to play sound
       data: { action: 'keyup->sounds#play', 'sounds-id-param': 'tic' }
       )
     %>
