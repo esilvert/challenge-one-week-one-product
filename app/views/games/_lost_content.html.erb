@@ -1,5 +1,5 @@
 <%= turbo_frame_tag 'game', class: 'w-full' do %>
-  <div class="w-full" data-controller="slide">
+  <div class="w-full" data-controller="slide play-sound" data-sound-id="game_over">
 
 
     <% serie_count = session[SessionConstants::SERIES_COUNT_KEY] %>
