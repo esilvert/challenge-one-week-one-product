@@ -10,7 +10,6 @@ export default class extends Controller {
     window.setTimeout(() => {
       const soundsControllerElement = document.getElementById("sounds");
 
-      console.log({ elem: soundsControllerElement });
       const soundsController =
         this.application.getControllerForElementAndIdentifier(
           soundsControllerElement,

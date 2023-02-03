@@ -9,7 +9,7 @@ module GamesHelper
 
   MUTED_SCENE_PATHS = %w[
     /splash
-    /leaderboard
+    /lost
     /
   ].freeze
 

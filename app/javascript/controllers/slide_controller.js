@@ -8,8 +8,11 @@ export default class extends Controller {
 
     this.doSlide();
 
+    this.lowerMusic();
+
     this.onSlideEnded = () => {
       if (this.hasRedirectTarget) this.redirectTarget.click();
+      this.restoreMusic();
     };
   }
 
@@ -51,5 +54,29 @@ export default class extends Controller {
       if (!useSlideKeep || !target.dataset.slideKeep)
         target.classList.add("hidden");
     });
+  }
+
+  lowerMusic() {
+    const musicsControllerElement = document.getElementById("musics");
+
+    const musicsController =
+      this.application.getControllerForElementAndIdentifier(
+        musicsControllerElement,
+        "musics"
+      );
+
+    musicsController.lowerMusic();
+  }
+
+  restoreMusic() {
+    const musicsControllerElement = document.getElementById("musics");
+
+    const musicsController =
+      this.application.getControllerForElementAndIdentifier(
+        musicsControllerElement,
+        "musics"
+      );
+
+    musicsController.restoreMusic();
   }
 }
