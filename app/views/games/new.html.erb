@@ -4,8 +4,8 @@
 </div>
 
 <div class="text-center px-4" id="question">
-  <%= form_tag(game_path) do %>
-    <p class="text-primary text-justify max-w-[316px]">
+  <%= form_tag(game_path, class: "max-w-[316px] mx-auto") do %>
+    <p class="text-primary text-justify mx-auto">
       Répond à une série de calculs de plus en plus durs et devient le maître du jeu !
     </p>
 
@@ -20,7 +20,7 @@
       )
     %>
 
-    <div class=" w-full flex justify-end">
+    <div class="w-full flex justify-end mx-auto">
       <%= submit_tag 'Valider',
          class: "button button-red p-1 max-w-[200px]"
       %>
