@@ -19,7 +19,7 @@
     %>
 
 
-    <div data-slide-target="slide" data-duration="2000">
+    <div data-slide-target="slide" data-duration="2000" class="hidden">
       <div class="centered text-center block">
         <p class="text-[2rem] px-5 w-full message">
           <%= current_messages[0].html_safe %>
@@ -28,7 +28,7 @@
     </div>
 
     <% if current_messages.count > 1 %>
-      <div data-slide-target="slide" data-duration="2000">
+      <div data-slide-target="slide" data-duration="2000" class="hidden">
 
         <div class="centered text-center block">
           <p class="text-[2rem] w-full message">

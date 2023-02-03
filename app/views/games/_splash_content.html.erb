@@ -1,12 +1,12 @@
 <div data-controller="slide">
-  <div data-slide-target="slide" data-duration="2000">
+  <div data-slide-target="slide" data-duration="2000" class="hidden">
     <div class="absolute text-center mx-auto top-[30vh] left-[calc(50%-220px/2)] w-[250px]">
       <%= image_tag 'logo.png' %>
     </div>
 
   </div>
 
-  <div data-slide-target="slide">
+  <div data-slide-target="slide" class="hidden">
     <div class="absolute text-center mx-auto top-[30vh] left-[calc(50%-180px/2)] w-[180px]">
       <%= image_tag 'smiley.png', width: '90', height: '50', class: 'mx-auto mb-3 rotating' %>
       <%= link_to new_game_path, class: 'w-full' do %>
