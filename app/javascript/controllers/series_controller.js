@@ -26,12 +26,16 @@ export default class extends Controller {
     } else this.setupEasy();
 
     const serie = parseInt(this.element.dataset.currentSerie ?? "0");
+    const questionNo = parseInt(this.element.dataset.questionNo ?? "0");
 
     console.log("current serie", serie);
     this.modulate.classList.remove("blue");
     this.modulate.classList.remove("red");
 
-    if (serie > this.ON_FIRE_THRESHOLD) {
+    if (
+      serie > this.ON_FIRE_THRESHOLD &&
+      questionNo >= this.ON_FIRE_ENABLED_AT
+    ) {
       if (this.isHardMode()) this.modulate.classList.add("red");
       else this.modulate.classList.add("blue");
     }
@@ -40,7 +44,6 @@ export default class extends Controller {
   disconnect() {}
 
   isHardMode() {
-    console.log(this.questionNo, this.HARD_MODE_THRESHOLD);
     return this.questionNo >= this.HARD_MODE_THRESHOLD;
   }
 

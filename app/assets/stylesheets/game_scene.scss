@@ -284,13 +284,13 @@
   pointer-events: none;
 
   &.red{
-    background: radial-gradient(transparent 40%, rgba(red, 0.3));
+    background: radial-gradient(transparent 40%, rgba(#FEB21E, 0.8));
   }
   &.blue{
-    background: radial-gradient(transparent 40%, rgba(pink, 0.3));
+    background: radial-gradient(transparent 40%, rgba(#FF49E8, 0.5));
   }
   &.black{
-    background: radial-gradient(transparent 40%, rgba(black, 1));
+    background: radial-gradient(transparent 40%, rgba(darkred, 0.8));
   }
 
   z-index: 1000;
